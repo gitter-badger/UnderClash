@@ -22,7 +22,7 @@
 
 export ACTIVATOR_VERSION=1.3.10
 
-wget https://downloads.typesafe.com/typesafe-activator/${ACTIVATOR_VERSION}/typesafe-activator-${ACTIVATOR_VERSION}-minimal.zip
+wget http://downloads.typesafe.com/typesafe-activator/${ACTIVATOR_VERSION}/typesafe-activator-${ACTIVATOR_VERSION}-minimal.zip
 unzip -q typesafe-activator-${ACTIVATOR_VERSION}-minimal.zip
 rm typesafe-activator-${ACTIVATOR_VERSION}-minimal.zip
 chmod a+x activator-${ACTIVATOR_VERSION}-minimal/bin/activator
