@@ -1,20 +1,24 @@
 lrobinot/UnderClash:
   PreBuild:
-    - sudo apt-get install --yes unzip
-    - wget -q http://downloads.typesafe.com/typesafe-activator/1.3.10/typesafe-activator-1.3.10-minimal.zip
-    - unzip typesafe-activator-1.3.10-minimal.zip
+    - wget -q https://downloads.typesafe.com/typesafe-activator/1.3.10/typesafe-activator-1.3.10-minimal.zip
+    - unzip -q typesafe-activator-1.3.10-minimal.zip
     - chmod a+x activator-1.3.10-minimal/bin/activator
+
   Build:
     - jdk_switcher use oraclejdk8
     - activator-1.3.10-minimal/bin/activator compile
+
   PkgInclude:
     - '/target/universal/*'
+
   PreInstall:
     - sudo apt-get -y update
     - sudo apt-get install --yes unzip
+
   PostInstall:
     - cd $DISTELLI_INSTALLHOME/target/universal
     - unzip reactive-stocks-1.0-SNAPSHOT.zip
+
   Exec:
     - cd $DISTELLI_INSTALLHOME/target/universal
     - UnderClash-1.0-SNAPSHOT/bin/UnderClash

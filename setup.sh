@@ -1,10 +1,10 @@
 #!/bin/bash
 
-ACTIVATOR_VERSION=1.3.10
+export ACTIVATOR_VERSION=1.3.10
 
 sudo add-apt-repository --yes ppa:webupd8team/java
 sudo apt-get update
-sudo apt-get install --yes oracle-java8-installer
+sudo apt-get install --yes oracle-java8-installer unzip
 
 mkdir -p ~/bin
 
