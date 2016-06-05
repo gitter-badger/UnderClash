@@ -4,13 +4,11 @@ lrobinot/UnderClash:
     - wget -q http://downloads.typesafe.com/typesafe-activator/1.3.10/typesafe-activator-1.3.10-minimal.zip
     - unzip typesafe-activator-1.3.10-minimal.zip
     - mv activator-1.3.10-minimal activator
-    - cd activator
-    - export PATH=$PATH:activator
-    - source ~/.bashrc
-    - chmod a+x activator
+    - export PATH=$PATH:activator/bin
+    - chmod a+x activartor/bin/activator
   Build:
     - jdk_switcher use oraclejdk8
-    - ./activator/activator compile
+    - activator compile
   PkgInclude:
     - '/target/universal/*'
   PreInstall:
