@@ -1,13 +1,28 @@
 #!/bin/bash
 
+# if type -p java; then
+#     echo found java executable in PATH
+#     _java=java
+# elif [[ -n "$JAVA_HOME" ]] && [[ -x "$JAVA_HOME/bin/java" ]];  then
+#     echo found java executable in JAVA_HOME
+#     _java="$JAVA_HOME/bin/java"
+# else
+#     echo "no java"
+# fi
+
+# if [[ "$_java" ]]; then
+#     version=$("$_java" -version 2>&1 | awk -F '"' '/version/ {print $2}')
+#     echo version "$version"
+#     if [[ "$version" > "1.5" ]]; then
+#         echo version is more than 1.5
+#     else
+#         echo version is less than 1.5
+#     fi
+# fi
+
 export ACTIVATOR_VERSION=1.3.10
 
-sudo add-apt-repository --yes ppa:webupd8team/java
-sudo apt-get update
-sudo apt-get install --yes oracle-java8-installer unzip
-
-mkdir -p ~/bin
-
-curl -sL https://downloads.typesafe.com/typesafe-activator/${ACTIVATOR_VERSION}/typesafe-activator-${ACTIVATOR_VERSION}-minimal.zip -o /tmp/activator.zip
-(cd ~ ; unzip -qo /tmp/activator.zip)
-ln -sf ~/activator-${ACTIVATOR_VERSION}-minimal/bin/activator ~/bin/activator
+wget https://downloads.typesafe.com/typesafe-activator/${ACTIVATOR_VERSION}/typesafe-activator-${ACTIVATOR_VERSION}-minimal.zip
+unzip -q typesafe-activator-${ACTIVATOR_VERSION}-minimal.zip
+rm typesafe-activator-${ACTIVATOR_VERSION}-minimal.zip
+chmod a+x activator-${ACTIVATOR_VERSION}-minimal/bin/activator

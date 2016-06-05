@@ -1,11 +1,9 @@
 lrobinot/UnderClash:
   PreBuild:
-    - wget -q https://downloads.typesafe.com/typesafe-activator/1.3.10/typesafe-activator-1.3.10-minimal.zip
-    - unzip -q typesafe-activator-1.3.10-minimal.zip
-    - chmod a+x activator-1.3.10-minimal/bin/activator
 
   Build:
     - jdk_switcher use oraclejdk8
+    - ./setup.sh
     - activator-1.3.10-minimal/bin/activator compile
 
   PkgInclude:
