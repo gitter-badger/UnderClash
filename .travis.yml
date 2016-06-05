@@ -1,0 +1,4 @@
+language: scala
+before-script:
+  - ./setup.sh
+script: activator-1.3.10-minimal/bin/activator
