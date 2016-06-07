@@ -6,7 +6,7 @@ What is it?
 
 UnderClash is a Clash of Clans clan management tool.
 
-[![Issues](https://img.shields.io/github/issues/lrobinot/UnderClash.svg)](https://github.com/lrobinot/UnderClash/issues) [![Drone Status](https://drone.io/github.com/lrobinot/UnderClash/status.png)](https://drone.io/github.com/lrobinot/UnderClash/latest) [![Travis Status](https://img.shields.io/travis/lrobinot/UnderClash.svg)](https://travis-ci.org/lrobinot/UnderClash)
+Github Issues [![Github Issues](https://img.shields.io/github/issues/lrobinot/UnderClash.svg)](https://github.com/lrobinot/UnderClash/issues) -- Drone CI Status [![Drone CI Status](https://drone.io/github.com/lrobinot/UnderClash/status.png)](https://drone.io/github.com/lrobinot/UnderClash/latest) -- Travis CI Status [![Travis CI Status](https://img.shields.io/travis/lrobinot/UnderClash.svg)](https://travis-ci.org/lrobinot/UnderClash)
 
 Setup development environment
 -----------------------------
