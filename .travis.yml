@@ -1,4 +1,5 @@
 language: scala
+
 sudo: false
 
 addons:
@@ -11,6 +12,6 @@ jdk:
   - oraclejdk8
 
 before-script:
-  - "./setup.sh"
+  - "bash -x ./setup.sh"
 
 script: activator-1.3.10-minimal/bin/activator
