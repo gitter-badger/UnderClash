@@ -5,7 +5,7 @@ lrobinot/UnderClash:
   Build:
     - jdk_switcher use oraclejdk8
     - ./setup.sh
-    - activator-1.3.10-minimal/bin/activator compile
+    - activator-1.3.10-minimal/bin/activator stage
 
   PkgInclude:
     - '/target/universal/*'
