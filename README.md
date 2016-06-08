@@ -24,8 +24,8 @@ To install all needed softwares:
 ./setup.sh
 ```
 
-Running development version
----------------------------
+Running a local development version
+-----------------------------------
 
 To run a development version:
 ```bash
