@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -x
+#set -x
 
 export ACTIVATOR_VERSION=1.3.10
 

@@ -11,14 +11,14 @@ import scala.concurrent.ExecutionContext.Implicits.global
 @Singleton
 class SchedulerService @Inject() (system: ActorSystem, lifecycle: ApplicationLifecycle) {
 
-  Logger.debug("SchedulerService instanciated")
+  Logger.info("SchedulerService instanciated")
 
-  val scheduledTask = system.scheduler.schedule(1.minutes, 15.minutes)(job)
+  val scheduledTask = system.scheduler.schedule(5.minutes, 15.minutes)(job)
 
   // Register stop hook
   lifecycle.addStopHook { () => Future.successful(scheduledTask.cancel()) }
 
-  Logger.debug("Scheduler started")
+  Logger.info("Scheduler started")
 
   def job = {
     Logger.debug("SchedulerService.job running")
