@@ -20,6 +20,7 @@
 #     fi
 # fi
 
+set -x 
 export ACTIVATOR_VERSION=1.3.10
 
 wget -q http://downloads.typesafe.com/typesafe-activator/${ACTIVATOR_VERSION}/typesafe-activator-${ACTIVATOR_VERSION}-minimal.zip
