@@ -1,4 +1,5 @@
 lrobinot/UnderClash:
+
   PreBuild:
 
   Build:
@@ -15,7 +16,7 @@ lrobinot/UnderClash:
 
   PostInstall:
     - cd $DISTELLI_INSTALLHOME/target/universal
-    - unzip reactive-stocks-1.0-SNAPSHOT.zip
+    - unzip UnderClash-1.0-SNAPSHOT.zip
 
   Exec:
     - cd $DISTELLI_INSTALLHOME/target/universal
