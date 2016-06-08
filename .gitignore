@@ -8,4 +8,5 @@ target
 /RUNNING_PID
 
 # Activator local copy
-activator-*
+/activator-*
+/activator

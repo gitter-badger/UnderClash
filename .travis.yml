@@ -15,4 +15,4 @@ before_script:
 
 before_install: unset SBT_OPTS JVM_OPTS
 
-script: activator-1.3.10-minimal/bin/activator stage
+script: ./activator stage

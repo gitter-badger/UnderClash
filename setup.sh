@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-ACTIVATOR_VERSION=1.3.10
+set -x
+
+export ACTIVATOR_VERSION=1.3.10
 
 if type -p java 2>&1 >/dev/null; then
   _java=java
@@ -24,9 +26,9 @@ if ! type -p unzip 2>&1 >/dev/null ; then
 fi
 
 wget -q http://downloads.typesafe.com/typesafe-activator/${ACTIVATOR_VERSION}/typesafe-activator-${ACTIVATOR_VERSION}-minimal.zip
-unzip -q typesafe-activator-${ACTIVATOR_VERSION}-minimal.zip
+unzip -qo typesafe-activator-${ACTIVATOR_VERSION}-minimal.zip
 rm typesafe-activator-${ACTIVATOR_VERSION}-minimal.zip
 chmod a+x activator-${ACTIVATOR_VERSION}-minimal/bin/activator
+ln -sf activator-${ACTIVATOR_VERSION}-minimal/bin/activator activator
 
 echo "Setup complete..."
-ls -l activator-${ACTIVATOR_VERSION}-minimal/bin/activator
