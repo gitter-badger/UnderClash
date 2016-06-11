@@ -12,29 +12,44 @@ import play.api.libs.ws._
 @Singleton
 class SchedulerService @Inject() (system: ActorSystem, lifecycle: ApplicationLifecycle, ws: WSClient, config: Configuration) {
 
-  Logger.info("SchedulerService instanciated")
+  private val DEFAULT = "changeme"
 
-  val scheduledTask = system.scheduler.schedule(5.seconds, 15.minutes)(job)
+  Logger.debug("SchedulerService instanciated")
 
-  // Register stop hook
-  lifecycle.addStopHook { () => Future.successful(scheduledTask.cancel()) }
+  val refreshTimeout = config.getMilliseconds("clan.refresh") match {
+    case Some(t) => t milliseconds
+    case None => 15.minutes
+  }
 
-  Logger.info("Scheduler started")
+  val clanTag = config.getString("clan.tag").getOrElse(DEFAULT)
+  Logger.debug(s"Clan tag = $clanTag")
+  if (clanTag == DEFAULT) {
+    Logger.error("Clan tag not defined")
+  }
+
+  val apiToken = config.getString("api.clash.token").getOrElse(DEFAULT)
+  if (apiToken == DEFAULT) {
+    Logger.error("Clash API token not defined")
+  }
+
+  if (clanTag != DEFAULT && apiToken != DEFAULT) {
+    val scheduledTask = system.scheduler.schedule(15.seconds, refreshTimeout)(job)
+    // Register stop hook
+    lifecycle.addStopHook { () => Future.successful(scheduledTask.cancel()) }
+
+    Logger.debug("Scheduler started")
+  }
 
   def job = {
     Logger.debug("SchedulerService.job running")
 
-    val request = ws.url("https://api.clashofclans.com/v1/clans/%23" + config.getString("clan.tag").get)
+    val request = ws.url("https://api.clashofclans.com/v1/clans/%23" + clanTag)
       .withHeaders("Accept" -> "application/json")
-      .withHeaders("Authorization" -> ("Bearer " + config.getString("api.clash.token").get))
+      .withHeaders("Authorization" -> ("Bearer " + apiToken))
       .withRequestTimeout(10000.millis)
-
-    Logger.debug("SchedulerService.job headers ------------")
-    Logger.debug(request.headers.toString())
 
     val result = request.get().map {
       response => {
-        Logger.debug("SchedulerService.job data -------")
         Logger.debug(response.body)
         (response.json).as[String]
       }
