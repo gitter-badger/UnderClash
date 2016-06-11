@@ -10,7 +10,6 @@ UnderClash is a Clash of Clans clan management tool.
 [![Travis CI Status](https://img.shields.io/travis/lrobinot/UnderClash.svg)](https://travis-ci.org/lrobinot/UnderClash)
 [![Code Climate](https://codeclimate.com/github/lrobinot/UnderClash/badges/gpa.svg)](https://codeclimate.com/github/lrobinot/UnderClash)
 
-
 Distelli CI Status: https://www.distelli.com/lrobinot/apps/UnderClash
 
 Setup development environment
@@ -31,5 +30,5 @@ Running a local development version
 
 To run a development version:
 ```bash
-activator-<version>-minimal/bin/activator ~run
+./activator ~run
 ```
