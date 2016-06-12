@@ -12,7 +12,7 @@ import play.api.libs.ws._
 @Singleton
 class SchedulerService @Inject() (system: ActorSystem, lifecycle: ApplicationLifecycle, ws: WSClient, config: Configuration) {
 
-  private val DEFAULT = "changeme"
+  private val changeMe = "changeme"
 
   Logger.debug("SchedulerService instanciated")
 
@@ -21,18 +21,18 @@ class SchedulerService @Inject() (system: ActorSystem, lifecycle: ApplicationLif
     case None => 15.minutes
   }
 
-  val clanTag = config.getString("clan.tag").getOrElse(DEFAULT)
+  val clanTag = config.getString("clan.tag").getOrElse(changeMe)
   Logger.debug(s"Clan tag = $clanTag")
-  if (clanTag == DEFAULT) {
+  if (clanTag == changeMe) {
     Logger.error("Clan tag not defined")
   }
 
-  val apiToken = config.getString("api.clash.token").getOrElse(DEFAULT)
-  if (apiToken == DEFAULT) {
+  val apiToken = config.getString("api.clash.token").getOrElse(changeMe)
+  if (apiToken == changeMe) {
     Logger.error("Clash API token not defined")
   }
 
-  if (clanTag != DEFAULT && apiToken != DEFAULT) {
+  if (clanTag != changeMe && apiToken != changeMe) {
     val scheduledTask = system.scheduler.schedule(15.seconds, refreshTimeout)(job)
     // Register stop hook
     lifecycle.addStopHook { () => Future.successful(scheduledTask.cancel()) }
