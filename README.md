@@ -33,3 +33,8 @@ To run a development version:
 ```bash
 ./activator ~run
 ```
+
+You like this piece of software?
+--------------------------------
+
+Donate something? http://paypal.me/lrobinot

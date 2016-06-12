@@ -8,9 +8,7 @@ import com.google.inject.name.Names
 import services.SchedulerService
 
 class StartupModule extends AbstractModule {
-  Logger.debug("StartupModule instanciated")
-
   def configure() = {
-    bind(classOf[SchedulerService])
+    bind(classOf[SchedulerService]).asEagerSingleton
   }
 }
