@@ -9,6 +9,10 @@ import play.api.inject.ApplicationLifecycle
 import scala.concurrent.ExecutionContext.Implicits.global
 import play.api.libs.ws._
 
+import play.api.libs.json._
+import models._
+import models.JsonFormats._
+
 @Singleton
 class SchedulerService @Inject() (system: ActorSystem, lifecycle: ApplicationLifecycle, ws: WSClient, config: Configuration) {
 
@@ -48,10 +52,17 @@ class SchedulerService @Inject() (system: ActorSystem, lifecycle: ApplicationLif
       .withHeaders("Authorization" -> ("Bearer " + apiToken))
       .withRequestTimeout(10000.millis)
 
-    val result = request.get().map {
+    request.get().map {
       response => {
-        Logger.debug(response.body)
-        (response.json).as[String]
+        response.json.validate[ApiClan] match {
+          case s: JsSuccess[ApiClan] => {
+            val clan: ApiClan = s.get
+            Logger.debug("Clan name = " + clan.name)
+          }
+          case e: JsError => {
+            Logger.error(JsError.toJson(e).toString())
+          }
+        }
       }
     }
   }
