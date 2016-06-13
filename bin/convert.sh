@@ -41,3 +41,8 @@ echo "Processing png[1024x1024] to png[310x150] ..."
 convert -size 310x150 xc:transparent /tmp/$$.3.png
 composite -gravity center ${TOP}/public/img/logo-150.png /tmp/$$.3.png ${TOP}/public/img/logo-310x150.png
 optipng --quiet -o7 ${TOP}/public/img/logo-310x150.png
+
+echo "Processing png[1024x1024] to png[24x24] ..."
+convert /tmp/$$.2.png -resize "24x24" ${TOP}/public/img/logo-24.png
+optipng --quiet -o7 ${TOP}/public/img/logo-24.png
+

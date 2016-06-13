@@ -19,7 +19,7 @@ libraryDependencies ++= Seq(
   "com.h2database" % "h2" % "1.4.192",
   "org.webjars" %% "webjars-play" % "2.5.0",
   "org.webjars" % "bootstrap" % "3.3.6",
-  "org.webjars" % "bootswatch-flatly" % "3.3.5+4"
+  "org.webjars" % "bootswatch-darkly" % "3.3.5+4"
 )
 
 resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"
