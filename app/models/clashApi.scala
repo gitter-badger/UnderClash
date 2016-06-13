@@ -3,8 +3,8 @@ package models
 case class ApiImageUrls(tiny: Option[String], small: Option[String], medium: Option[String], large: Option[String])
 case class ApiLocation(id: Long, name: String, isCountry: Boolean, countryCode: String)
 case class ApiLeague(id: Long, name: String, iconUrls: ApiImageUrls)
-case class ApiMember(tag: String, name: String, role: String, expLevel: Int, ApiLeague: ApiLeague, trophies: Int, clanRank: Int, previousClanRank: Int, donations: Int, donationsReceived: Int)
-case class ApiClan(tag: String, name: String, `type`: String, description: String, ApiLocation: ApiLocation, badgeUrls: ApiImageUrls, clanLevel: Int, clanPoints: Int, requiredTrophies: Int, warFrequency: String, warWinStreak: Int, warWins: Int, warTies: Int, warLosses: Int, isWarLogPublic: Boolean, members: Int, memberList: List[ApiMember])
+case class ApiMember(tag: String, name: String, role: String, expLevel: Int, league: ApiLeague, trophies: Int, clanRank: Int, previousClanRank: Int, donations: Int, donationsReceived: Int)
+case class ApiClan(tag: String, name: String, `type`: String, description: String, location: ApiLocation, badgeUrls: ApiImageUrls, clanLevel: Int, clanPoints: Int, requiredTrophies: Int, warFrequency: String, warWinStreak: Int, warWins: Int, warTies: Int, warLosses: Int, isWarLogPublic: Boolean, members: Int, memberList: List[ApiMember])
 
 object JsonFormats {
   import play.api.libs.json.Json
