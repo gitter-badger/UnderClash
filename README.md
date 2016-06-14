@@ -11,6 +11,7 @@ UnderClash is a Clash of Clans clan management tool.
 [![CodeClimate](https://codeclimate.com/github/lrobinot/UnderClash/badges/gpa.svg)](https://codeclimate.com/github/lrobinot/UnderClash)
 [![CodeClimate Issue Count](https://codeclimate.com/github/lrobinot/UnderClash/badges/issue_count.svg)](https://codeclimate.com/github/lrobinot/UnderClash)
 [![Codacy](https://api.codacy.com/project/badge/Grade/69c5e523c38f4ae19f4199d960ff03be)](https://www.codacy.com/app/lrobinot/UnderClash)
+[![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
 
 Distelli CI Status: https://www.distelli.com/lrobinot/apps/UnderClash
 

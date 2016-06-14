@@ -22,6 +22,8 @@ engines:
   fixme:
     enabled: true
 
+  markdownlint:
+       enabled: true
 ratings:
   paths:
   - "**.css"
