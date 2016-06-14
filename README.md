@@ -38,7 +38,7 @@ Running a local development version
 To run a development version:
 
 ```bash
-./activator ~run
+./activator ~run -Dconfig.file=example.conf
 ```
 
 You like this piece of software
