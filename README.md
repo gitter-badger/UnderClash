@@ -13,17 +13,18 @@ UnderClash is a Clash of Clans clan management tool.
 [![Codacy](https://api.codacy.com/project/badge/Grade/69c5e523c38f4ae19f4199d960ff03be)](https://www.codacy.com/app/lrobinot/UnderClash)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
 
-Distelli CI Status: https://www.distelli.com/lrobinot/apps/UnderClash
+Distelli CI Status: <https://www.distelli.com/lrobinot/apps/UnderClash>
 
 Setup development environment
 -----------------------------
 
 The technologies used by this project are:
 
-  * Backend container, Oracle JVM http://www.java.com
-  * Backend development stack, Lightbend Play! Framework (for scala) https://www.playframework.com
+* Backend container, Oracle JVM <http://www.java.com>
+* Backend development stack, Lightbend Play! Framework (for scala) <https://www.playframework.com>
 
 To install all needed softwares:
+
 ```bash
 ./setup.sh
 ```
@@ -32,11 +33,12 @@ Running a local development version
 -----------------------------------
 
 To run a development version:
+
 ```bash
 ./activator ~run
 ```
 
-You like this piece of software?
---------------------------------
+You like this piece of software
+-------------------------------
 
 Donate something? http://paypal.me/lrobinot
