@@ -2,9 +2,9 @@
 
 #set -x
 
-export ACTIVATOR_VERSION=1.3.10
+ACTIVATOR_VERSION=1.3.10
 
-if type -p java 2>&1 >/dev/null; then
+if type -p java >/dev/null 2>&1 ; then
   _java=java
 elif [[ -n "$JAVA_HOME" ]] && [[ -x "$JAVA_HOME/bin/java" ]];  then
   _java="$JAVA_HOME/bin/java"
@@ -15,13 +15,17 @@ else
 fi
 
 if [[ "$_java" ]]; then
-  version=$("$_java" -version 2>&1 | awk -F '"' '/version/ {print $2}')
-  if [[ "$version" < "1.8" ]]; then
+  version=$("$_java" -version 2>&1 | grep "version" | awk '{print $3}' | tr -d \" | awk '{split($0, array, ".")} END{print array[2]}')
+  echo "Found java version ${version}"
+  if [[ $version -lt 8 ]]; then
     echo Only version 1.8+ is supported
+    exit 1
+  else
+    echo "  ... ok"
   fi
 fi
 
-if ! type -p unzip 2>&1 >/dev/null ; then
+if ! type -p unzip >/dev/null 2>&1 ; then
   sudo apt-get install --yes unzip
 fi
 
@@ -31,4 +35,4 @@ rm typesafe-activator-${ACTIVATOR_VERSION}-minimal.zip
 chmod a+x activator-${ACTIVATOR_VERSION}-minimal/bin/activator
 ln -sf activator-${ACTIVATOR_VERSION}-minimal/bin/activator activator
 
-echo "Setup complete..."
+echo "Setup complete ..."

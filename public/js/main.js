@@ -1,1 +1,1 @@
-use 'stict';
+"use stict";

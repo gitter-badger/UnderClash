@@ -1,10 +1,13 @@
 UnderClash
 ==========
 
-What is it?
+Description
 -----------
 
 UnderClash is a Clash of Clans clan management tool.
+
+Code health
+-----------
 
 [![Github Issues](https://img.shields.io/github/issues/lrobinot/UnderClash.svg)](https://github.com/lrobinot/UnderClash/issues)
 [![Travis CI Status](https://img.shields.io/travis/lrobinot/UnderClash.svg)](https://travis-ci.org/lrobinot/UnderClash)
@@ -15,13 +18,13 @@ UnderClash is a Clash of Clans clan management tool.
 
 Distelli CI Status: <https://www.distelli.com/lrobinot/apps/UnderClash>
 
-Setup development environment
+Development environment setup
 -----------------------------
 
 The technologies used by this project are:
 
-* Backend container, Oracle JVM <http://www.java.com>
-* Backend development stack, Lightbend Play! Framework (for scala) <https://www.playframework.com>
+* Backend container, Oracle JVM 8+ <http://www.java.com>
+* Backend development stack, Lightbend Play! Framework (for scala) 2.5+ <https://www.playframework.com>
 
 To install all needed softwares:
 
@@ -41,4 +44,4 @@ To run a development version:
 You like this piece of software
 -------------------------------
 
-Donate something? http://paypal.me/lrobinot
+Donate something? <http://paypal.me/lrobinot>
