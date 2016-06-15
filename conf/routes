@@ -3,6 +3,8 @@
 # ~~~~
 
 GET     /                           controllers.HomeController.index
+GET     /manifest.json              controllers.HomeController.manifest
+GET     /ieconfig.xml               controllers.HomeController.ieconfig
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /static/*file               controllers.Assets.at(path="/public", file)

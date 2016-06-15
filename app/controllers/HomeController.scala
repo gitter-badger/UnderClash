@@ -11,4 +11,11 @@ class HomeController @Inject() (implicit val config: Configuration) extends Cont
     Ok(views.html.index())
   }
 
+  def manifest = Action {
+    Ok(views.html.manifest()).as("application/json")
+  }
+
+  def ieconfig = Action {
+    Ok(views.html.ieconfig()).as("application/xml")
+  }
 }

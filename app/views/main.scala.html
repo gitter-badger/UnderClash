@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     <title>@title -- UnderClash</title>
-    <link rel="manifest" href="@routes.Assets.versioned("manifest.json")">
+    <link rel="manifest" href="/manifest.json">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -13,8 +13,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="application-name" content="UnderClash">
     <meta name="apple-mobile-web-app-title" content="UnderClash">
-    <meta name="theme-color" content="#9C27B0">
-    <meta name="msapplication-navbutton-color" content="#9C27B0">
+    <meta name="theme-color" content="@config.getString("underclash.color.theme")">
+    <meta name="msapplication-navbutton-color" content="@config.getString("underclash.color.theme")">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="msapplication-starturl" content="/">
 
@@ -30,7 +30,7 @@
     <!-- IE 11 Tile for Windows 8.1 Start Screen -->
     <meta name="application-name" content="Name">
     <meta name="msapplication-tooltip" content="Tooltip">
-    <meta name="msapplication-config" content="@routes.Assets.versioned("ieconfig.xml")">
+    <meta name="msapplication-config" content="/ieconfig.xml">
 
     <link rel="stylesheet" href="@routes.Assets.versioned("lib/bootstrap/css/bootstrap.css")">
     <link rel="stylesheet" href="@routes.Assets.versioned("lib/bootswatch-darkly/css/bootstrap-theme.css")">
