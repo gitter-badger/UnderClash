@@ -35,4 +35,7 @@ rm typesafe-activator-${ACTIVATOR_VERSION}-minimal.zip
 chmod a+x activator-${ACTIVATOR_VERSION}-minimal/bin/activator
 ln -sf activator-${ACTIVATOR_VERSION}-minimal/bin/activator activator
 
+# Install git hooks
+ln -s -f ../../bin/git-hooks.post-commit.sh .git/hooks/post-commit
+
 echo "Setup complete ..."
