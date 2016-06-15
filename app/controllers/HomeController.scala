@@ -5,7 +5,7 @@ import play.api._
 import play.api.mvc._
 
 @Singleton
-class HomeController @Inject() extends Controller {
+class HomeController @Inject() (implicit val config: Configuration) extends Controller {
 
   def index = Action {
     Ok(views.html.index())
