@@ -1,0 +1,13 @@
+@()(implicit config: play.api.Configuration)
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+  <msapplication>
+    <tile>
+      <square70x70logo src="@routes.Assets.versioned("img/logo-70.png")"/>
+      <square150x150logo src="@routes.Assets.versioned("img/logo-150.png")"/>
+      <wide310x150logo src="@routes.Assets.versioned("img/logo-310x150.png")"/>
+      <square310x310logo src="@routes.Assets.versioned("img/logo-310.png")"/>
+      <TileColor>@config.getString("underclash.color.theme")</TileColor>
+    </tile>
+  </msapplication>
+</browserconfig>

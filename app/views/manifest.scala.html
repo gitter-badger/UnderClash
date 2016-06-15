@@ -1,0 +1,17 @@
+@()(implicit config: play.api.Configuration)
+{
+  "name": "UnderClash",
+  "short_name": "UnderClash",
+  "start_url": "/",
+  "scope": "/",
+  "display": "fullscreen",
+  "theme_color": "@config.getString("underclash.color.theme")",
+  "background_color": "@config.getString("underclash.color.background")",
+  "icons": [
+    {
+      "src": "@routes.Assets.versioned("img/logo-512.png")",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
