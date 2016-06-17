@@ -18,8 +18,7 @@ libraryDependencies ++= Seq(
   "com.typesafe.play" %% "play-slick" % "2.0.0",
   "com.h2database" % "h2" % "1.4.192",
   "org.webjars" %% "webjars-play" % "2.5.0",
-  "org.webjars" % "bootstrap" % "3.3.6",
-  "org.webjars" % "bootswatch-darkly" % "3.3.5+4",
+  "org.webjars.bower" % "angular-material" % "1.0.9",
   "org.webjars" % "chartjs" % "2.1.3"
 )
 
