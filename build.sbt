@@ -12,10 +12,16 @@ lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
 scalaVersion := "2.11.7"
 
+scalacOptions += "-feature"
+
+// Disable documentation generation
+doc in Compile <<= target.map(_ / "none")
+
 libraryDependencies ++= Seq(
   cache,
   ws,
   "com.typesafe.play" %% "play-slick" % "2.0.0",
+  "com.typesafe.play" %% "play-slick-evolutions" % "2.0.0",
   "com.h2database" % "h2" % "1.4.192",
   "org.webjars" %% "webjars-play" % "2.5.0",
   "org.webjars.bower" % "angular-material" % "1.0.9",
@@ -24,5 +30,6 @@ libraryDependencies ++= Seq(
 
 resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"
 
-pipelineStages := Seq(rjs, digest, gzip)
+pipelineStages := Seq(uglify, rjs, digest, gzip)
 //pipelineStages := Seq(imagemin, rjs, digest, gzip)
+
