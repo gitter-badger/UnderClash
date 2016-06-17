@@ -37,5 +37,6 @@ ln -sf activator-${ACTIVATOR_VERSION}-minimal/bin/activator activator
 
 # Install git hooks
 ln -sf ../../bin/git-hooks.pre-push.sh .git/hooks/pre-push
+ln -sf ../../bin/git-hooks.post-commit.sh .git/hooks/post-commit
 
 echo "Setup complete ..."
