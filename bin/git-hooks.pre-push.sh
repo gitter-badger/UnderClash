@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 top=$(git rev-parse --show-toplevel)
-lock="${top}/.post-commit.lock"
+lock="${top}/.git-hooks.lock"
 if [ ! -e "${lock}" ];
 then
   version=$("${top}/bin/git-revision.sh")
