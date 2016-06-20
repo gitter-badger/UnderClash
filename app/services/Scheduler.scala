@@ -10,18 +10,20 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import play.api.libs.ws._
 
 import play.api.libs.json._
-import models._
 import models.JsonFormats._
 
+import models._
+import models.dao.ClansDAO
+
 @Singleton
-class SchedulerService @Inject() (system: ActorSystem, lifecycle: ApplicationLifecycle, ws: WSClient, config: Configuration) {
+class SchedulerService @Inject() (system: ActorSystem, lifecycle: ApplicationLifecycle, ws: WSClient, config: Configuration, clansDAO: ClansDAO) {
 
   private val changeMe = "changeme"
 
-  Logger.debug("SchedulerService instanciated")
+  Logger.debug("SchedulerService instantiated")
 
   val refreshTimeout = config.getMilliseconds("clan.refresh") match {
-    case Some(t) => t milliseconds
+    case Some(t) => t.millis
     case None => 15.minutes
   }
 
@@ -58,6 +60,18 @@ class SchedulerService @Inject() (system: ActorSystem, lifecycle: ApplicationLif
           case s: JsSuccess[ApiClan] => {
             val clan: ApiClan = s.get
             Logger.debug("Clan name = " + clan.name)
+
+            clansDAO.insert(new Clan(
+              None,
+              clan.tag,
+              clan.clanLevel,
+              clan.clanPoints,
+              clan.warWinStreak,
+              clan.warWins,
+              clan.warTies,
+              clan.warLosses,
+              clan.members))
+
           }
           case e: JsError => {
             Logger.error(JsError.toJson(e).toString())
