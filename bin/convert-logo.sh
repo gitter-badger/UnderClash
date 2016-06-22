@@ -46,3 +46,7 @@ echo "Processing png[1024x1024] to png[24x24] ..."
 convert /tmp/$$.2.png -resize "24x24" "${TOP}/public/img/logo-24.png"
 optipng --quiet -o7 "${TOP}/public/img/logo-24.png"
 
+echo "Processing png[1024x1024] to png[64x64] ..."
+convert /tmp/$$.2.png -resize "64x64" "${TOP}/public/img/logo-64.png"
+optipng --quiet -o7 "${TOP}/public/img/logo-64.png"
+
