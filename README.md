@@ -1,6 +1,8 @@
 UnderClash
 ==========
 
+[![Join the chat at https://gitter.im/lrobinot/UnderClash](https://badges.gitter.im/lrobinot/UnderClash.svg)](https://gitter.im/lrobinot/UnderClash?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Description
 -----------
 
