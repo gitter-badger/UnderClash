@@ -1,11 +1,14 @@
 package controllers
 
-import javax.inject._
+import javax.inject.{Inject, Singleton}
 import play.api._
-import play.api.mvc._
+import play.api.mvc.{Action, Controller}
+
+import models.Clan
+import models.dao.ClansDAO
 
 @Singleton
-class HomeController @Inject() (implicit val config: Configuration) extends Controller {
+class HomeController @Inject() (implicit val config: Configuration, clansDAO: ClansDAO) extends Controller {
 
   def index = Action {
     Ok(views.html.index())

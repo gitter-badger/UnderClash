@@ -22,7 +22,7 @@ libraryDependencies ++= Seq(
   ws,
   "com.typesafe.play" %% "play-slick" % "2.0.0",
   "com.typesafe.play" %% "play-slick-evolutions" % "2.0.0",
-  "org.postgresql" % "postgresql" % "9.4-1204-jdbc4",
+  "org.postgresql" % "postgresql" % "9.4-1206-jdbc42",
   "org.webjars" %% "webjars-play" % "2.5.0",
   "org.webjars.bower" % "angular-material" % "1.0.9",
   "org.webjars" % "chartjs" % "2.1.3"

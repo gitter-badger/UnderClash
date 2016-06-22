@@ -7,6 +7,7 @@ import scala.concurrent.Future
 import scala.concurrent.duration._
 import play.api.inject.ApplicationLifecycle
 import scala.concurrent.ExecutionContext.Implicits.global
+import scala.util.{Failure, Success}
 import play.api.libs.ws._
 
 import play.api.libs.json._
@@ -16,7 +17,7 @@ import models._
 import models.dao.ClansDAO
 
 @Singleton
-class SchedulerService @Inject() (system: ActorSystem, lifecycle: ApplicationLifecycle, ws: WSClient, config: Configuration, clansDAO: ClansDAO) {
+class SchedulerService @Inject()(system: ActorSystem, lifecycle: ApplicationLifecycle, ws: WSClient, config: Configuration, clansDAO: ClansDAO) {
 
   private val changeMe = "changeme"
 
@@ -59,9 +60,9 @@ class SchedulerService @Inject() (system: ActorSystem, lifecycle: ApplicationLif
         response.json.validate[ApiClan] match {
           case s: JsSuccess[ApiClan] => {
             val clan: ApiClan = s.get
-            Logger.debug("Clan name = " + clan.name)
+            Logger.debug(s"Clan name = ${clan.name}")
 
-            clansDAO.insert(new Clan(
+            val future: Future[Long] = clansDAO.insert(new Clan(
               None,
               clan.tag,
               clan.clanLevel,
@@ -72,6 +73,10 @@ class SchedulerService @Inject() (system: ActorSystem, lifecycle: ApplicationLif
               clan.warLosses,
               clan.members))
 
+            future.onComplete {
+              case Success(id) => Logger.debug(s"DB id = $id")
+              case Failure(e) => Logger.debug("Failed to insert, e = " + e)
+            }
           }
           case e: JsError => {
             Logger.error(JsError.toJson(e).toString())

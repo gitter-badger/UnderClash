@@ -2,7 +2,7 @@
 
 # --- !Ups
 
-CREATE TABLE Clans (
+CREATE TABLE clans (
   id SERIAL PRIMARY KEY,
   tag varchar(16) NOT NULL,
   clan_level integer,
